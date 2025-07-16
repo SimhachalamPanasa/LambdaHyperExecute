@@ -1,0 +1,9 @@
+image: python 3.10
+
+tasks:
+  - init: pip install -r requirements.txt
+    command: pytest tests/test_Lambda.py
+
+ports:
+  - port: 8080
+    onOpen: open-preview

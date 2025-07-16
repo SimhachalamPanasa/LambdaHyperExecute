@@ -1,0 +1,20 @@
+version: 0.2
+
+globalTimeout: 900
+testSuiteTimeout: 600
+testSuiteStep: 300
+
+runson: linux
+
+pre:
+  #install dependencies
+  - pip install -r requirements.txt
+
+testDiscovery:
+  type: raw
+  mode: static
+  command: |
+    pytest tests/test_Lambda.py || pytest tests/test_Lambda.py || pytest tests/test_Lambda.py
+
+  post:
+    -rm -f demo.txt
